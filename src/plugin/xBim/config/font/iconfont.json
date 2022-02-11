@@ -1,0 +1,23 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "15024995",
+      "name": "ic_invisible",
+      "font_class": "ic_invisible",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    },
+    {
+      "icon_id": "15025033",
+      "name": "ic_visible",
+      "font_class": "ic_visible",
+      "unicode": "e615",
+      "unicode_decimal": 58901
+    }
+  ]
+}

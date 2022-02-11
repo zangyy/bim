@@ -1,0 +1,8 @@
+
+export enum ACTION {
+  UNDEFINED,
+  CLIP,
+  SELECTED,
+  MARK_EDIT,
+  MARK
+}

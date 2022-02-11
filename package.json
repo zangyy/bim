@@ -1,0 +1,44 @@
+{
+  "name": "plugin-xbim",
+  "version": "0.1.2",
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lib": "vue-cli-service build --target lib --name plugintest --dest lib src/index.js",
+    "test:2": "vue-demi-switch 2 && jest",
+    "test:3": "vue-demi-switch 3 vue3 && jest"
+  },
+  "dependencies": {
+    "@vue/composition-api": "^1.0.0-rc.11",
+    "@xbim/viewer": "^2.0.1-pre202105271012",
+    "@xtor/cga.js": "^0.0.6",
+    "algebra": "^1.0.1",
+    "algebra.js": "^0.2.6",
+    "axios": "^0.21.1",
+    "core-js": "^3.6.5",
+    "earcut": "^2.2.2",
+    "element-plus": "^1.0.2-beta.46",
+    "element-ui": "^2.15.2",
+    "lodash": "^4.17.21",
+    "save": "^2.4.0",
+    "screenfull": "^5.1.0",
+    "three": "^0.129.0",
+    "vue": "^3.0.0",
+    "vue-class-component": "^8.0.0-0",
+    "vue-demi": "^0.9.1",
+    "vue-router": "^4.0.0-0",
+    "vuex": "^4.0.0-0",
+    "xtorcga": "^0.0.39"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-plugin-typescript": "~4.5.0",
+    "@vue/cli-plugin-vuex": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/compiler-sfc": "^3.0.0",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^8.0.2",
+    "typescript": "~4.1.5"
+  }
+}
