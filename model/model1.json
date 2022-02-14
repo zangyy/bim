@@ -1,0 +1,39 @@
+{
+  "name": "Undefined",
+  "typeName": "IfcBuildingStorey",
+  "id": 30,
+  "children": [{
+      "parts": "303,337",
+      "width": 200.0,
+      "mark": "41",
+      "unitWeight": 89.1,
+      "bottomElevation": -6.93,
+      "topElevation": -5.278,
+      "name": "Steel Assembly",
+      "typeName": "IfcElementAssembly",
+      "id": 438721
+    },
+    {
+      "parts": "152",
+      "width": 160.0,
+      "mark": "240",
+      "unitWeight": 178.4,
+      "bottomElevation": -7.38,
+      "topElevation": -5.275,
+      "name": "Steel Assembly",
+      "typeName": "IfcElementAssembly",
+      "id": 438722
+    },
+    {
+      "parts": "269",
+      "width": 160.0,
+      "mark": "240",
+      "unitWeight": 178.4,
+      "bottomElevation": -7.38,
+      "topElevation": -5.275,
+      "name": "Steel Assembly",
+      "typeName": "IfcElementAssembly",
+      "id": 438723
+    }
+  ]
+}

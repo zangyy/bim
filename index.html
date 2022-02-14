@@ -1,1 +1,87 @@
-<!DOCTYPE html><html lang=""><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/favicon.ico"><title>plugin-xbim</title><link href="/js/about.68cf6b32.js" rel="prefetch"><link href="/css/app.837aae93.css" rel="preload" as="style"><link href="/css/chunk-vendors.8140bef9.css" rel="preload" as="style"><link href="/js/app.2950203b.js" rel="preload" as="script"><link href="/js/chunk-vendors.010e5ff8.js" rel="preload" as="script"><link href="/css/chunk-vendors.8140bef9.css" rel="stylesheet"><link href="/css/app.837aae93.css" rel="stylesheet"></head><body><noscript><strong>We're sorry but plugin-xbim doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id="app"></div><script src="/js/chunk-vendors.010e5ff8.js"></script><script src="/js/app.2950203b.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    html,
+    body,
+    iframe {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <iframe name="iframe1" id="iframe1" src="./index1.html" frameborder="0" style="width: 100%;height: 99.6vh;"></iframe>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+  <script>
+    function doAfterLoad(func) {
+      if (!window.iframe1 || !window.iframe1.window || !window.iframe1.window.doDraw) {
+        setTimeout(() => {
+          doAfterLoad(func)
+        }, 100);
+      } else {
+        func && func()
+      }
+    }
+    doAfterLoad(() => {
+      axios({
+        url: './model/test.json',
+        method: "get"
+      }).then(e1 => {
+        window.iframe1.window.doDraw(e1.data, './model/test.wexbim')
+      });
+    })
+
+
+    // 发送消息到iframe
+    let sendMsgToIframe = (type, data) => {
+      window.iframe1.postMessage(JSON.stringify({
+        type,
+        data
+      }), "*");
+    }
+
+
+    // 监听iframe传递的消息
+    window.addEventListener("message", event => {
+      var origin = event.origin
+      // 验证一次消息来源，也可不加
+      // if (origin !== "http://example.org:8080")
+      //   return;
+
+      console.log('从iframe内收到的消息', event.data);
+      try {
+        let data = JSON.parse(event.data);
+        switch (data.type) {
+          case 'loadProdData': {
+            console.log('点击到的零件id', data.data.id);
+
+            // 模拟接口请求
+            setTimeout(() => {
+              // 需要显示的详细内容，传什么显示什么，不需要的字段这里自行过滤
+              let dataShow = {
+                model: '模型名字blabla',
+                name: '测试数据1111'
+              };
+              sendMsgToIframe('prodDataLoaded', dataShow)
+            }, 2000);
+            break
+          }
+        }
+
+      } catch (e) {
+        console.warn(e)
+      }
+    }, false)
+  </script>
+</body>
+
+</html>
